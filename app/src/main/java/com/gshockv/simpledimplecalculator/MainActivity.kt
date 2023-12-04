@@ -3,6 +3,7 @@ package com.gshockv.simpledimplecalculator
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.gshockv.simpledimplecalculator.ui.Calculator
@@ -11,11 +12,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+  val viewModel: CalculatorViewModel by viewModels()
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
       SimpleDimpleCalcTheme {
-        Calculator()
+        Calculator(viewModel)
       }
     }
   }
@@ -25,6 +28,6 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 fun PreviewApp() {
   SimpleDimpleCalcTheme {
-    Calculator()
+    Calculator(CalculatorViewModel())
   }
 }

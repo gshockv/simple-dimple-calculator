@@ -12,10 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.gshockv.simpledimplecalculator.CalculatorViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Calculator() {
+fun Calculator(viewModel: CalculatorViewModel) {
   Scaffold(
     topBar = { AppToolBar() }
   ) { contentPadding ->
@@ -26,7 +27,7 @@ fun Calculator() {
         .padding(all = 4.dp),
       verticalArrangement = Arrangement.Bottom
     ) {
-      DisplayView(valueToDisplay = "12345678")
+      DisplayView(valueToDisplay = viewModel.currentValue)
       Divider(
         modifier = Modifier
           .fillMaxWidth()
@@ -40,5 +41,5 @@ fun Calculator() {
 @Composable
 @Preview(showSystemUi = true)
 fun PreviewCalculator() {
-  Calculator()
+  Calculator(CalculatorViewModel())
 }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -53,7 +54,7 @@ fun CalculatorButton(
 ) {
   OutlinedButton(
     onClick = spec.operation,
-    shape = CircleShape,
+    shape = RoundedCornerShape(16.dp),
     modifier = Modifier.size(84.dp),
     border = BorderStroke(
       1.dp, color = Color.Transparent
